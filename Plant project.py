@@ -1,5 +1,6 @@
 import random
 import pickle
+import tkinter as tk
 
 num_plants = 0
 current_plants=[]
@@ -36,6 +37,14 @@ def adding_plants_to_list():
         print(current_plants, len(current_plants))
     else:
         print("ok")
+ 
+def watering_plants_func():
+    #plant on list watered. Goal/ add date to plant watered. Make it saved to the correct plant. 
+    plant_watered = []
+    which_plant_watered = input("which plant did you water?").lower()
+    plant_watered = plant_watered.append(which_plant_watered)
+    print(plant_watered)
+
 
 print("Welcome to your plant notebook!")
 adding_plants_to_list()
@@ -45,5 +54,12 @@ if add_more == "yes":
     adding_plants_to_list()
 else:
     print("ok")
-    
+
+water_main = input("would you like to water any plants?").lower()
+if water_main == "yes":
+    watering_plants_func()
+else:
+    print("ok")
+
+
 
