@@ -44,15 +44,27 @@ def adding_plants_to_list():
 def watering_plants_func():
     #plant on list watered. Goal/ add date to plant watered. Make it saved to the correct plant. 
     global plant_watered
+
+    try:
+        with open(filename, 'rb') as file:
+            plant_watered =pickle.load(file)
+    except FileNotFoundError:
+        plant_watered = []
+
     which_plant_watered = input("which plant did you water?").lower()
     plant_watered.append(which_plant_watered)
-    print(f"{which_plant_watered}was watered and added to your list")
+    print(f"{which_plant_watered}was watered and added to your list. You can type clear to clear your list")
     print(plant_watered)
     YN_another_plant = input("any other plants watered? type yes or no").lower()
     if YN_another_plant == "yes":
        water_another_plant = input("which plant would you like to water?")
        plant_watered.append(water_another_plant)
-    print(plant_watered)
+       print(plant_watered)
+    elif which_plant_watered== "clear":
+        current_plants.clear()
+
+    with open(filename, 'wb') as file:
+        pickle.dump(plant_watered, file)
 
 
 
@@ -70,6 +82,9 @@ if water_main == "yes":
     watering_plants_func()
 else:
     print("ok")
+
+print(f"your current plant list{current_plants}")
+print(f"current watered plants{plant_watered}")
 
 
 
