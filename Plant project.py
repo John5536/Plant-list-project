@@ -1,8 +1,7 @@
 import random
 import pickle
-import tkinter as tk
 from datetime import datetime
-#plaaaaants
+
 num_plants = 0
 current_plants=[]
 plant_watered = [ "",None]
