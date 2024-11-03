@@ -1,10 +1,11 @@
 import random
 import pickle
 import tkinter as tk
-
+from datetime import datetime
+#plaaaaants
 num_plants = 0
 current_plants=[]
-plant_watered = []
+plant_watered = [ "",None]
 filename = "current_plants.pkl"
 saved_water_list ="plant_watered.pkl"
 #loads current saved list data
@@ -54,8 +55,7 @@ def adding_plants_to_list():
 def watering_plants_func():
     #plant on list watered. Goal/ add date to plant watered. Make it saved to the correct plant. 
     global plant_watered
-
-    
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     which_plant_watered = input("which plant did you water?").lower()
     plant_watered.append(which_plant_watered)
@@ -91,6 +91,4 @@ else:
 #prints current lists to che what is on them.
 print(f"your current plant list{current_plants}")
 print(f"current watered plants{plant_watered}")
-
-
 
